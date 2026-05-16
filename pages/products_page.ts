@@ -1,6 +1,5 @@
 import { expect, Locator, Page } from '@playwright/test';
 import { HomePage } from './home-page';
-import { TEST_CASES } from '../constants/generics';
 
 export class ProductsPage extends HomePage {
     constructor(page: Page) {
