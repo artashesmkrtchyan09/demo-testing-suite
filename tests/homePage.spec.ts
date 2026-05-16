@@ -1,6 +1,6 @@
 import { test } from '../fixtures/pages-fixtures';
 import { faker } from '@faker-js/faker';
-import { Contacts } from '../interfaces/user.interface';
+import { Contacts } from '../interfaces';
 
 test.describe('Home page ', () => {
 

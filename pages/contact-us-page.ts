@@ -1,7 +1,7 @@
 import { expect, Page } from '@playwright/test';
 import { HomePage } from './home-page';
 import { CONTACT_US } from '../constants/generics';
-import { Contacts } from '../interfaces/user.interface'
+import { Contacts } from '../interfaces'
 
 import * as path from 'path';
 

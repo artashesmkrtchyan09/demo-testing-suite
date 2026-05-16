@@ -1,6 +1,5 @@
 import { expect, Page } from '@playwright/test';
-import { USER_PAGE } from '../constants/generics';
-import { PRODUCTS } from '../constants/generics'
+import { USER_PAGE, PRODUCTS } from '../constants/generics';
 
 export class HomePage {
     readonly page: Page;

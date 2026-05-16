@@ -1,8 +1,7 @@
 import { expect, test } from '../fixtures/pages-fixtures';
 import { faker } from '@faker-js/faker';
-import { PRODUCT_DATA } from '../test-data/productData';
-import { USER_DATA } from '../test-data/userData';
-import { UserAccount, UserAddress } from '../interfaces/user.interface';
+import { PRODUCT_DATA, USER_DATA} from '../test-data';
+import { UserAccount, UserAddress } from '../interfaces';
 
 test.describe('Cart page ', () => {
 

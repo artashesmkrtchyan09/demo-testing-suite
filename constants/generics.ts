@@ -1,6 +1,6 @@
 export const BASE_URL = 'http://automationexercise.com';
 
-export const USER_PAGE = {
+const USER_PAGE = {
     loginTitle: 'Login to your account',
     signUpTitle: 'New User Signup!',
     loginError: 'Your email or password is incorrect!',
@@ -14,15 +14,22 @@ export const USER_PAGE = {
     subscriptionStatus: 'You have been successfully subscribed!'
 }
 
-export const CONTACT_US = {
+const CONTACT_US = {
     title: 'GET IN TOUCH',
     successMessage: 'Success! Your details have been submitted successfully.'
 }
 
-export const TEST_CASES = {
+const TEST_CASES = {
     title: 'TEST CASES',
 }
 
-export const PRODUCTS = {
+const PRODUCTS = {
     recommenededTitle: 'RECOMMENDED ITEMS'
+}
+
+export {
+    USER_PAGE,
+    CONTACT_US,
+    TEST_CASES,
+    PRODUCTS
 }

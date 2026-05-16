@@ -1,7 +1,7 @@
 import { expect, Page } from '@playwright/test';
 import { HomePage } from './home-page';
 import { USER_PAGE } from '../constants/generics';
-import { UserAccount, UserAddress } from '../interfaces/user.interface'
+import { UserAccount, UserAddress } from '../interfaces'
 
 export class SignUpLoginPage extends HomePage {
     constructor(page: Page) {
