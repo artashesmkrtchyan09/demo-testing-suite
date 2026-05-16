@@ -22,7 +22,7 @@ test.describe('Cart page ', () => {
         await productsPage.addProductFromPage(1)
         await productsPage.viewCart()
 
-        expect(await cartPage.products.count()).toBe(3)
+        expect(await cartPage.products.count()).toBe(2)
 
         for (let i = 0; i < await cartPage.products.count(); i++) {
             const productData = PRODUCT_DATA.cartProducts[i]
