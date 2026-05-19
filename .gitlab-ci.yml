@@ -4,12 +4,11 @@ stages:
 component_test:
   stage: test
   image: mcr.microsoft.com/playwright:v1.59.1-noble
-  scripts:
+  script:
     - npm ci
     - npx playwright test
   artifacts:
     when: always
     paths:
       - playwright-reports
-    expire-in: 2 days  
-
+    expire_in: 2 days  
