@@ -69,8 +69,8 @@ test.describe('Cart page ', () => {
     })
 
     test('Verify Cart page after login', async ({signUpLoginPage, cartPage, productsPage}) => {
-        const user: UserAccount = {...USER_DATA.account, email: faker.internet.email()};
-        const address: UserAddress = USER_DATA.address;
+        const user: UserAccount = {...USER_DATA.account, email: faker.internet.email()}
+        const address: UserAddress = USER_DATA.address
         const productData = PRODUCT_DATA.cartProducts[4]
 
         await productsPage.addProductFromPage(4)

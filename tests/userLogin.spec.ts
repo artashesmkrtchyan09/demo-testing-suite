@@ -6,8 +6,8 @@ import { UserAccount, UserAddress } from '../interfaces';
 test.describe('Login ', () => {
 
   test('Verify user registration flow', async ({signUpLoginPage}) => {    
-    const user: UserAccount = {...USER_DATA.account, email: faker.internet.email()};
-    const address: UserAddress = USER_DATA.address;
+    const user: UserAccount = {...USER_DATA.account, email: faker.internet.email()}
+    const address: UserAddress = USER_DATA.address
   
     await signUpLoginPage.navigateToSignUpLogin()
     await signUpLoginPage.checkSignUpTitle()
@@ -26,8 +26,8 @@ test.describe('Login ', () => {
   });
   
   test('Verify user login with correct email and password', async ({signUpLoginPage}) => {
-    const user: UserAccount = {...USER_DATA.account, email: faker.internet.email()};
-    const address: UserAddress = USER_DATA.address;
+    const user: UserAccount = {...USER_DATA.account, email: faker.internet.email()}
+    const address: UserAddress = USER_DATA.address
     
     await signUpLoginPage.fullyRegisterUser(user, address)
     await signUpLoginPage.logout()
@@ -42,7 +42,7 @@ test.describe('Login ', () => {
   });
   
   test('Verify user login with incorrect email and password', async ({signUpLoginPage}) => {    
-    const user: UserAccount = {...USER_DATA.account, email: faker.internet.email()};
+    const user: UserAccount = {...USER_DATA.account, email: faker.internet.email()}
     
     await signUpLoginPage.navigateToSignUpLogin()
     await signUpLoginPage.login(user.email, user.password)
@@ -51,8 +51,8 @@ test.describe('Login ', () => {
   });
   
   test('Verify user logout', async ({signUpLoginPage}) => {    
-    const user: UserAccount = {...USER_DATA.account, email: faker.internet.email()};
-    const address: UserAddress = USER_DATA.address;
+    const user: UserAccount = {...USER_DATA.account, email: faker.internet.email()}
+    const address: UserAddress = USER_DATA.address
     
     await signUpLoginPage.fullyRegisterUser(user, address)
     await signUpLoginPage.logout()
@@ -60,8 +60,8 @@ test.describe('Login ', () => {
   });
 
   test('Verify user registration with existing email', async ({signUpLoginPage}) => {
-    const user: UserAccount = {...USER_DATA.account, email: faker.internet.email()};
-    const address: UserAddress = USER_DATA.address;
+    const user: UserAccount = {...USER_DATA.account, email: faker.internet.email()}
+    const address: UserAddress = USER_DATA.address
 
     await signUpLoginPage.fullyRegisterUser(user, address)
     await signUpLoginPage.logout()
