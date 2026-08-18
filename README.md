@@ -177,12 +177,72 @@ Available fixtures:
 
 ## CI/CD
 
-Tests run automatically via:
+Tests run automatically when you **push** or open a **pull/merge request** to `main` or `master`:
 
-- **GitHub Actions** — `.github/workflows/playwright.yml` (on push/PR to `main` or `master`)
-- **GitLab CI** — `.gitlab-ci.yml`
+| Platform | Config file |
+|----------|-------------|
+| GitHub Actions | `.github/workflows/playwright.yml` |
+| GitLab CI | `.gitlab-ci.yml` |
 
-Both install dependencies, run the full suite, and publish the HTML report as an artifact.
+Both pipelines run `npx playwright test` and publish the HTML report as an artifact.
+
+### Push to GitHub and GitLab
+
+This project uses two git remotes:
+
+| Remote | Host |
+|--------|------|
+| `origin` | GitHub |
+| `gitlab` | GitLab |
+
+Push to both with one command:
+
+```bash
+git push origin main; git push gitlab main
+```
+
+To push whatever branch you are currently on:
+
+```bash
+git push origin HEAD; git push gitlab HEAD
+```
+
+First time pushing to GitLab? Set upstream tracking once:
+
+```bash
+git push -u gitlab main
+```
+
+#### Optional: shorter alias
+
+Run once to create a `pushall` shortcut:
+
+```bash
+git config alias.pushall "!git push origin main && git push gitlab main"
+```
+
+Then push to both remotes with:
+
+```bash
+git pushall
+```
+
+#### Optional: single remote, two push URLs
+
+Alternatively, configure `origin` to push to both hosts at once:
+
+```bash
+git remote set-url --add --push origin https://github.com/artashesmkrtchyan09/my-first-automated-testing-suite
+git remote set-url --add --push origin https://gitlab.com/artashes.mkrtchyan09/my-first-automated-testing-suite.git
+```
+
+After that:
+
+```bash
+git push origin main
+```
+
+Verify remotes with `git remote -v` — you should see one fetch URL and two push URLs for `origin`.
 
 ---
 
