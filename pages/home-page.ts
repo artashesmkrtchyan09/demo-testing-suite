@@ -12,36 +12,36 @@ export class HomePage {
         await expect(this.page.locator('#slider')).toBeVisible();
     }
 
-    async navigateToSignUpLogin() {
-        await this.page.locator('.navbar-nav').locator('a[href="/login"]').click();
-    }
+    // async navigateToSignUpLogin() {
+    //     await this.page.locator('.navbar-nav').locator('a[href="/login"]').click();
+    // }
 
-    async navigateToContactUs() {
-        await this.page.locator('a[href="/contact_us"]').click();
-    }
+    // async navigateToContactUs() {
+    //     await this.page.locator('a[href="/contact_us"]').click();
+    // }
 
-    async navigateToTestCases() {
-        const testCaseButton = this.page.locator('#header').locator('a[href="/test_cases"]');  
-        await testCaseButton.click();
-    }
+    // async navigateToTestCases() {
+    //     const testCaseButton = this.page.locator('#header').locator('a[href="/test_cases"]');  
+    //     await testCaseButton.click();
+    // }
 
-    async navigateToCart() {
-        const cartButton =  this.page.locator('#header').locator('a[href="/view_cart"]');        
-        await cartButton.click();
-    }
+    // async navigateToCart() {
+    //     const cartButton =  this.page.locator('#header').locator('a[href="/view_cart"]');        
+    //     await cartButton.click();
+    // }
 
-    async navigateToProducts() {
-        const productsButton =  this.page.locator('#header').locator('a[href="/products"]');       
-        await productsButton.click();
-    }
+    // async navigateToProducts() {
+    //     const productsButton =  this.page.locator('#header').locator('a[href="/products"]');       
+    //     await productsButton.click();
+    // }
 
-    async logout() {
-        await this.page.locator('a[href="/logout"]').click();
-    }
+    // async logout() {
+    //     await this.page.locator('a[href="/logout"]').click();
+    // }
 
-    async deleteAccount() {
-        await this.page.locator('a[href="/delete_account"]').click();
-    }
+    // async deleteAccount() {
+    //     await this.page.locator('a[href="/delete_account"]').click();
+    // }
 
     async checkAccountCreated() {
         await expect(this.page.getByText(USER_PAGE.accountStatus.created)).toBeVisible()
@@ -55,29 +55,29 @@ export class HomePage {
         await this.page.getByTestId('continue-button').click()
     }
 
-    async checkUserLoggedIn(firstName: string) {
-        await expect(this.page.getByText(`Logged in as ${firstName}`)).toBeVisible()
-    }
+    // async checkUserLoggedIn(firstName: string) {
+    //     await expect(this.page.getByText(`Logged in as ${firstName}`)).toBeVisible()
+    // }
 
-    async checkUserLoggedOut(firstName: string) {
-        await expect(this.page.getByText(`Logged in as ${firstName}`)).not.toBeVisible()
-    }
+    // async checkUserLoggedOut(firstName: string) {
+    //     await expect(this.page.getByText(`Logged in as ${firstName}`)).not.toBeVisible()
+    // }
 
-    async checkSubscription() {
-        await expect(this.page.getByText(USER_PAGE.subscription)).toBeVisible()
-    }
+    // async checkSubscription() {
+    //     await expect(this.page.getByText(USER_PAGE.subscription)).toBeVisible()
+    // }
 
-    async fillSubscriptionEmail(email: string) {
-        await this.page.locator('#susbscribe_email').fill(email)
-    }
+    // async fillSubscriptionEmail(email: string) {
+    //     await this.page.locator('#susbscribe_email').fill(email)
+    // }
 
-    async subscribe() {
-        await this.page.locator('#subscribe').click()
-    }
+    // async subscribe() {
+    //     await this.page.locator('#subscribe').click()
+    // }
 
-    async checkUserSubscribed() {
-        await expect(this.page.getByText(USER_PAGE.subscriptionStatus)).toBeVisible()
-    }
+    // async checkUserSubscribed() {
+    //     await expect(this.page.getByText(USER_PAGE.subscriptionStatus)).toBeVisible()
+    // }
 
     async scrollDown() {
         await this.page.keyboard.press('End');

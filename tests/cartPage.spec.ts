@@ -5,18 +5,18 @@ import { UserAccount, UserAddress } from '../interfaces';
 
 test.describe('Cart page ', () => {
 
-    test('Verify Subscription in Cart page', async ({ cartPage }) => {
+    test('Verify Subscription in Cart page', async ({ navigation, subscription }) => {
         const email = faker.internet.email()
 
-        await cartPage.navigateToCart()
-        await cartPage.checkSubscription()
-        await cartPage.fillSubscriptionEmail(email)
-        await cartPage.subscribe()
-        await cartPage.checkUserSubscribed()
+        await navigation.goToCart()
+        await subscription.checkSubscription()
+        await subscription.fillSubscriptionEmail(email)
+        await subscription.subscribe()
+        await subscription.checkUserSubscribed()
     })
 
-    test('Verify adding products to Cart', async ({cartPage, productsPage}) => {
-        await productsPage.navigateToProducts()
+    test('Verify adding products to Cart', async ({navigation, cartPage, productsPage}) => {
+        await navigation.goToProducts()
         await productsPage.addProductFromPage(0)
         await productsPage.continueShopping()
         await productsPage.addProductFromPage(1)
@@ -68,7 +68,7 @@ test.describe('Cart page ', () => {
         await cartPage.checkProductDeleted(newProduct)
     })
 
-    test('Verify Cart page after login', async ({signUpLoginPage, cartPage, productsPage}) => {
+    test('Verify Cart page after login', async ({navigation, signUpLoginPage, cartPage, productsPage}) => {
         const user: UserAccount = {...USER_DATA.account, email: faker.internet.email()}
         const address: UserAddress = USER_DATA.address
         const productData = PRODUCT_DATA.cartProducts[4]
@@ -80,7 +80,7 @@ test.describe('Cart page ', () => {
         await cartPage.checkProductAdded(newProduct)
 
         await signUpLoginPage.fullyRegisterUser(user, address)
-        await signUpLoginPage.navigateToCart()
+        await navigation.goToCart()
 
         await cartPage.checkProductAdded(newProduct)
     })

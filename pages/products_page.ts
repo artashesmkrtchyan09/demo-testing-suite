@@ -1,13 +1,15 @@
 import { expect, Locator, Page } from '@playwright/test';
-import { HomePage } from './home-page';
 
-export class ProductsPage extends HomePage {
+export class ProductsPage {
+    readonly page: Page;
+    readonly productItem: Locator;
+    readonly confirmationDialog: Locator;
+
     constructor(page: Page) {
-        super(page)
+        this.page = page;
+        this.productItem = this.page.locator('.product-image-wrapper');
+        this.confirmationDialog = this.page.locator('.modal-content');
     }
-
-    productItem = this.page.locator('.product-image-wrapper');
-    confirmationDialog = this.page.locator('.modal-content')
 
     async hoverOverProduct(elemIndex: number) {
         await this.productItem.nth(elemIndex).hover()

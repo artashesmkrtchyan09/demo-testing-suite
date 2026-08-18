@@ -4,7 +4,7 @@ import { Contacts } from '../interfaces';
 
 test.describe('Home page ', () => {
 
-    test('Verify Contact Us page', async ({ contactsPage }) => {
+    test('Verify Contact Us page', async ({ navigation, contactsPage, homePage }) => {
         const contactInfo: Contacts = {
             userName: faker.internet.username(),
             email: faker.internet.email(),
@@ -12,26 +12,21 @@ test.describe('Home page ', () => {
             message: faker.lorem.text()
         }
 
-        await contactsPage.navigateToContactUs()
+        await navigation.goToContactUs()
         await contactsPage.fillContactInfo(contactInfo)
         await contactsPage.selectFile()
         await contactsPage.submit()
         await contactsPage.checkSuccess()
         await contactsPage.clickHome()
-        await contactsPage.checkHomePage()
+        await homePage.checkHomePage()
     })
 
-    test('Verify Test Cases page', async ({ testCasesPage }) => {
-        await testCasesPage.navigateToTestCases()
-        await testCasesPage.checkTestCases()
-    })
-
-    test('Verify Subscription in Home page', async ({ homePage }) => {
+    test('Verify Subscription in Home page', async ({ subscription }) => {
         const email = faker.internet.email()
 
-        await homePage.checkSubscription()
-        await homePage.fillSubscriptionEmail(email)
-        await homePage.subscribe()
-        await homePage.checkUserSubscribed()
+        await subscription.checkSubscription()
+        await subscription.fillSubscriptionEmail(email)
+        await subscription.subscribe()
+        await subscription.checkUserSubscribed()
     })
 })

@@ -1,13 +1,14 @@
 import { expect, Page } from '@playwright/test';
-import { HomePage } from './home-page';
 import { CONTACT_US } from '../constants/generics';
 import { Contacts } from '../interfaces'
 
 import * as path from 'path';
 
-export class ContactUsPage extends HomePage {
+export class ContactUsPage{
+    readonly page: Page;
+
     constructor(page: Page) {
-        super(page)
+        this.page = page;
     }
 
     async checkGetInTouch() {

@@ -1,11 +1,18 @@
 import { expect, Page } from '@playwright/test';
 import { HomePage } from './home-page';
+import { Navigation } from './components/navigation';
 import { USER_PAGE } from '../constants/generics';
 import { UserAccount, UserAddress } from '../interfaces'
 
-export class SignUpLoginPage extends HomePage {
-    constructor(page: Page) {
-        super(page)
+export class SignUpLoginPage{
+    readonly page: Page;
+    readonly homepage: HomePage;
+    readonly navigation: Navigation;
+
+    constructor(page: Page, homepage: HomePage, navigation: Navigation) {
+        this.page = page;
+        this.homepage = homepage;
+        this.navigation = navigation;
     }
 
     async checkLoginTitle() {
@@ -65,10 +72,10 @@ export class SignUpLoginPage extends HomePage {
     }
 
     async fullyRegisterUser(user: UserAccount, address: UserAddress) {
-        await this.navigateToSignUpLogin()
+        await this.navigation.goToSignUpLogin()
         await this.signUp(user.firstName, user.email)
         await this.registerUserInfo(user, address)
-        await this.continueAsLoggedUser()
+        await this.homepage.continueAsLoggedUser()
     }
 
     async checkLoginError() {
