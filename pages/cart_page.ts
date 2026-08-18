@@ -9,7 +9,6 @@ export class CartPage {
         this.products = this.page.locator('tbody tr')
     }
 
-
     async getCurrentTexts(row: number | Locator) {
         let currentRow: Locator
 

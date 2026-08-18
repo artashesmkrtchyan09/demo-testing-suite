@@ -4,11 +4,14 @@ stages:
 component_test:
   stage: test
   image: mcr.microsoft.com/playwright:v1.59.1-noble
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "push" && ($CI_COMMIT_BRANCH == "main" || $CI_COMMIT_BRANCH == "master")
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event" && ($CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "main" || $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "master")
   script:
     - npm ci
     - npx playwright test
   artifacts:
     when: always
     paths:
-      - playwright-reports
-    expire_in: 2 days  
+      - playwright-report/
+    expire_in: 30 days  
