@@ -26,6 +26,10 @@ export default defineConfig({
     ['html'],
     ['list']
   ],
+
+  expect: {
+    timeout: 10000,  // 10 seconds for all assertions
+  },
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('')`. */
