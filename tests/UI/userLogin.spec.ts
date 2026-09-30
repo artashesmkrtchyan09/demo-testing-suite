@@ -1,7 +1,7 @@
-import { test } from '../fixtures/pages-fixtures';
+import { test } from '../../fixtures/pages-fixtures';
 import { faker } from '@faker-js/faker';
-import { USER_DATA } from '../test-data';
-import { UserAccount, UserAddress } from '../interfaces';
+import { USER_DATA } from '../../test-data';
+import { UserAccount, UserAddress } from '../../interfaces';
 
 test.describe('Login ', () => {
 

@@ -22,10 +22,13 @@ export class ProductsPage {
         } else {
             await this.page.getByRole('button', { name: 'Add to cart' }).click()
         }
+
+        await expect(this.confirmationDialog).toBeVisible()
     }
 
     async continueShopping() {
         await this.confirmationDialog.locator('.close-modal').click()
+        await expect(this.confirmationDialog).toBeHidden()
     }
 
     async viewCart() {

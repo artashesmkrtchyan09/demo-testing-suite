@@ -1,5 +1,4 @@
 import { test as base, expect} from '@playwright/test';
-import { BASE_URL } from '../constants/generics';
 import { Navigation, Subscription } from '../pages/components'
 import { 
     HomePage, 
@@ -24,7 +23,7 @@ type Fixtures = {
 export const test = base.extend<Fixtures>({
     page: async ({page}, use) => {
         await page.route('**/*doubleclick.net/**', route => route.abort());
-        await page.goto(BASE_URL)
+        await page.goto('/')
         await expect(page.locator('#slider')).toBeVisible();
 
         await use(page);

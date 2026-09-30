@@ -74,7 +74,9 @@ export class SignUpLoginPage{
     async fullyRegisterUser(user: UserAccount, address: UserAddress) {
         await this.navigation.goToSignUpLogin()
         await this.signUp(user.firstName, user.email)
+        await this.checkSignUpOpened()
         await this.registerUserInfo(user, address)
+        await this.homepage.checkAccountCreated()
         await this.homepage.continueAsLoggedUser()
     }
 

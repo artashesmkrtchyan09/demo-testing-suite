@@ -1,5 +1,3 @@
-export const BASE_URL = 'http://automationexercise.com';
-
 const USER_PAGE = {
     loginTitle: 'Login to your account',
     signUpTitle: 'New User Signup!',
